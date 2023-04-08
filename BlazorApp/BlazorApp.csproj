@@ -13,6 +13,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorApp.Models\BlazorApp.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BlazorApp.Models">
+      <HintPath>..\BlazorApp.Models\bin\Debug\net7.0\BlazorApp.Models.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

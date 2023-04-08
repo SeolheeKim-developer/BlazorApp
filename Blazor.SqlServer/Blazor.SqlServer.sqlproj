@@ -56,5 +56,21 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Notes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Notes\Notes.sql" />
+    <Build Include="Notes\NoteComments.sql" />
+    <Build Include="Notes\DNN_DeleteNote.sql" />
+    <Build Include="Notes\DNN_GetCountNotes.sql" />
+    <Build Include="Notes\DNN_ListNotes.sql" />
+    <Build Include="Notes\DNN_ModifyNote.sql" />
+    <Build Include="Notes\DNN_ReplyNote.sql" />
+    <Build Include="Notes\DNN_SearchNoteCount.sql" />
+    <Build Include="Notes\DNN_SearchNotes.sql" />
+    <Build Include="Notes\DNN_ViewNote.sql" />
+    <Build Include="Notes\DNN_WriteNote.sql" />
+    <Build Include="Notes\NotesList.sql" />
+    <Build Include="Notes\NotesSearchList.sql" />
   </ItemGroup>
 </Project>
