@@ -1,5 +1,6 @@
 using BlazorApp.Areas.Identity;
 using BlazorApp.Data;
+using BlazorApp.Models.Ideas;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -27,6 +28,8 @@ namespace BlazorApp
             builder.Services.AddServerSideBlazor();
             builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             builder.Services.AddSingleton<WeatherForecastService>();
+
+            builder.Services.AddTransient<IIdeaRepository, IdeaRepository>();
 
             var app = builder.Build();
 

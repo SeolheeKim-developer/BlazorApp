@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using BlazorApp.Models.Ideas;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlazorApp.Data
@@ -9,5 +10,7 @@ namespace BlazorApp.Data
             : base(options)
         {
         }
+
+        public DbSet<Idea> Ideas { get; set; }
     }
 }

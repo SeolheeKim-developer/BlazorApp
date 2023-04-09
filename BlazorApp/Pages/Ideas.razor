@@ -1,0 +1,93 @@
+﻿@page "/Ideas"
+@using BlazorApp.Models.Ideas;
+
+@inject IIdeaRepository repository
+
+<h3>Ideas</h3>
+
+@if (ideas == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (ideas.Count == 0)
+{
+    <p><em>No Data...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in ideas)
+            {
+                <tr>
+                    <td>@m.Id</td>
+                    <td>@m.Note</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<input type="button" value="Writing" @onclick="btnCreate_Click" class="btn btn-primary" />
+@if (isShow)
+{
+    <div class="modal fade show" tabindex="-1" style="display:block;" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="btnClose_Click" />
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Todo</label>
+                            <input type="text" class="form-control" @bind="idea.Note">
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="btnSave_Click">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="btnClose_Click">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    Idea idea = new Idea();
+    private bool isShow = false;
+
+    private List<Idea> ideas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ideas = await repository.GetIdeas();
+    }
+
+    private void btnCreate_Click()
+    {
+        isShow = true;
+    }
+    private async Task btnClose_Click()
+    {
+        await repository.AddIdea(idea);
+        isShow = false;
+        idea = new Idea();
+    }
+    private async Task btnSave_Click()
+    {
+        await repository.AddIdea(idea);
+        isShow = false;
+        ideas = await repository.GetIdeas();
+        idea = new Idea();
+    }
+}
