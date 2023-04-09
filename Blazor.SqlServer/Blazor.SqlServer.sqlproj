@@ -73,4 +73,7 @@
     <Build Include="Notes\NotesList.sql" />
     <Build Include="Notes\NotesSearchList.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Blazor.SqlServer.publish.xml" />
+  </ItemGroup>
 </Project>

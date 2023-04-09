@@ -3,8 +3,7 @@
 //Install-Package Microsoft.EntityFrameworkCore.Tools
 //Install-Package System.Configuration.ConfigurationManager
 //Install-Package Microsoft.Data.SqlClient
-
-//using DotNetNote.Models.Ideas;
+using BlazorApp.Models;
 using BlazorApp.Models.Notes;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
@@ -41,7 +40,7 @@ namespace BlazorApp.Models
         /// 아이디어 관리자
         /// 아이디어 앱에 대한 참조(Idea 모델 클래스 <=> Ideas 테이블)
         /// </summary>
-        
+        public DbSet<Idea> Ideas { get; set; }
 
         /// <summary>
         /// 게시판
@@ -51,11 +50,11 @@ namespace BlazorApp.Models
         /// <summary>
         /// 도메인 관리자 테이블 참조
         /// </summary>
-        
+        public DbSet<Url> Urls { get; set; }
 
         /// <summary>
         /// 기술 리스트: [실습] Teches 테이블부터 Angular 앱 또는 Blazor 앱까지
         /// </summary>
-        
+        public DbSet<Tech> Teches { get; set; }
     }
 }
