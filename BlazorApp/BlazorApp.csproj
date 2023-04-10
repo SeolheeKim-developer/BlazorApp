@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -11,17 +11,25 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\TodoItem\" />
     <Folder Include="wwwroot\templates\dashboard\" />
     <Folder Include="wwwroot\templates\landing\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorApp.Models\BlazorApp.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BlazorApp.Models">
+      <HintPath>..\BlazorApp.Models\bin\Debug\net7.0\BlazorApp.Models.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

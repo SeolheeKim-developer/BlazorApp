@@ -1,6 +1,8 @@
 ﻿using BlazorApp.Models.Ideas;
+using BlazorApp.Models.TodoItem;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace BlazorApp.Data
 {
@@ -12,5 +14,6 @@ namespace BlazorApp.Data
         }
 
         public DbSet<Idea> Ideas { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
     }
 }

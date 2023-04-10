@@ -1,6 +1,7 @@
 using BlazorApp.Areas.Identity;
 using BlazorApp.Data;
 using BlazorApp.Models.Ideas;
+using BlazorApp.Models.TodoItem;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -30,6 +31,7 @@ namespace BlazorApp
             builder.Services.AddSingleton<WeatherForecastService>();
 
             builder.Services.AddTransient<IIdeaRepository, IdeaRepository>();
+            builder.Services.AddTransient<ITodoItemRepository, TodoItemRepository>();
 
             var app = builder.Build();
 
