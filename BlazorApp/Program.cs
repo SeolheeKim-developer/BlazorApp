@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using Blazorise;
+//using Blazorise.Bootstrap5;
+using Blazorise.Icons.FontAwesome;
+using Blazorise.Bootstrap;
 
 namespace BlazorApp
 {
@@ -33,6 +37,13 @@ namespace BlazorApp
             builder.Services.AddTransient<IIdeaRepository, IdeaRepository>();
             builder.Services.AddTransient<ITodoItemRepository, TodoItemRepository>();
 
+            builder.Services.AddBlazorise(options =>
+            {
+                options.Immediate = true;
+            })
+                            //.AddBootstrap5Providers()
+                            .AddFontAwesomeIcons();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -55,7 +66,7 @@ namespace BlazorApp
 
             app.UseAuthorization();
 
-            
+
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
 
